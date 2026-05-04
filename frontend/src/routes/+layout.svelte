@@ -63,6 +63,11 @@ SPDX-License-Identifier: MPL-2.0
 	</div>
 {/if}
 {@render children?.()}
+<footer
+	class="w-full shrink-0 border-t border-neutral-200/80 bg-[#F5F5F5] py-3 text-center text-xs text-[#1A1A1B]/55 dark:border-neutral-700 dark:bg-[#252526] dark:text-neutral-400"
+>
+	© 2026 Önder TechTeam
+</footer>
 <CommandPalette />
 
 <style lang="scss">

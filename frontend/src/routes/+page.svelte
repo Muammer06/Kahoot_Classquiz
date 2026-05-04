@@ -8,6 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { fly } from 'svelte/transition';
 	import JpgOpenGraph from '$lib/assets/landing/opengraph-home.jpg';
 	import BrandMark from '$lib/components/BrandMark.svelte';
+	import onderLogoHero from '$lib/assets/brand/onder-logo.svg';
 </script>
 
 <svelte:head>
@@ -48,12 +49,17 @@ SPDX-License-Identifier: MPL-2.0
 			class="text-center max-w-4xl"
 			in:fly={{ y: 20, duration: 800, opacity: 0 }}
 		>
-			<h1 class="text-3xl md:text-6xl font-black italic tracking-tight leading-tight uppercase text-[#1A1A1B]">
-				GELENEKTEN GELECEĞE, <br />
-				KARİYERİNE <span class="not-italic text-[#1A1A1B]">ÖN</span><span class="not-italic text-[#C41230]"
-					>DER</span
-				><span class="not-italic text-[#1A1A1B]">LİK ET.</span>
-			</h1>
+			<div class="flex justify-center px-2">
+				<img
+					src={onderLogoHero}
+					alt="Önder Ankara"
+					class="w-full max-w-2xl md:max-w-4xl h-auto object-contain drop-shadow-sm"
+					width="640"
+					height="186"
+					loading="eager"
+					decoding="async"
+				/>
+			</div>
 
 			<p class="mt-8 text-sm md:text-base font-medium text-[#1A1A1B]/75 max-w-lg mx-auto">
 				Canlı bilgi yarışması oluşturun, paylaşın veya oyun PIN’i ile hemen katılın.
