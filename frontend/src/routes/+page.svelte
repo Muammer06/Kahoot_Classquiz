@@ -8,7 +8,8 @@ SPDX-License-Identifier: MPL-2.0
 	import { fly } from 'svelte/transition';
 	import JpgOpenGraph from '$lib/assets/landing/opengraph-home.jpg';
 	import BrandMark from '$lib/components/BrandMark.svelte';
-	import onderLogoHero from '$lib/assets/brand/onder-logo.svg';
+
+	const heroLogoSrc = '/brand/onder-logo.png';
 </script>
 
 <svelte:head>
@@ -27,7 +28,7 @@ SPDX-License-Identifier: MPL-2.0
 </svelte:head>
 
 <div
-	class="min-h-screen bg-[#F5F5F5] flex flex-col justify-between p-8 md:p-16 font-sans text-[#1A1A1B] relative overflow-hidden"
+	class="min-h-0 flex-1 bg-[#F5F5F5] flex flex-col justify-between p-8 md:p-16 font-sans text-[#1A1A1B] relative overflow-x-hidden overflow-y-auto"
 >
 	<header class="flex justify-between items-start w-full z-10">
 		<div class="flex flex-col gap-2">
@@ -51,7 +52,7 @@ SPDX-License-Identifier: MPL-2.0
 		>
 			<div class="flex justify-center px-2">
 				<img
-					src={onderLogoHero}
+					src={heroLogoSrc}
 					alt="Önder Ankara"
 					class="w-full max-w-2xl md:max-w-4xl h-auto object-contain drop-shadow-sm"
 					width="640"

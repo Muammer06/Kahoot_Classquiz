@@ -56,18 +56,22 @@ SPDX-License-Identifier: MPL-2.0
 	{/if}
 </svelte:head>
 
-{#if navbarVisible.visible && !hideNavbar}
-	<Navbar />
-	<div class="pt-16">
-		<div class="z-40"></div>
-	</div>
-{/if}
-{@render children?.()}
-<footer
-	class="w-full shrink-0 border-t border-neutral-200/80 bg-[#F5F5F5] py-3 text-center text-xs text-[#1A1A1B]/55 dark:border-neutral-700 dark:bg-[#252526] dark:text-neutral-400"
->
-	© 2026 Önder TechTeam
-</footer>
+<div class="flex min-h-dvh flex-col bg-inherit">
+	{#if navbarVisible.visible && !hideNavbar}
+		<Navbar />
+		<div class="pt-16">
+			<div class="z-40"></div>
+		</div>
+	{/if}
+	<main class="relative z-0 flex min-h-0 flex-1 flex-col">
+		{@render children?.()}
+	</main>
+	<footer
+		class="relative z-20 w-full shrink-0 border-t border-neutral-300 bg-[#F5F5F5] py-3 text-center text-xs font-medium text-[#1A1A1B] dark:border-neutral-600 dark:bg-[#252526] dark:text-neutral-200"
+	>
+		© 2026 Önder TechTeam
+	</footer>
+</div>
 <CommandPalette />
 
 <style lang="scss">

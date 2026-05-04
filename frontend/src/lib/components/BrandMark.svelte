@@ -1,9 +1,7 @@
 <!--
-	Kurumsal logo: `$lib/assets/brand/onder-logo.svg` — dosyayı değiştirerek markanızı güncelleyin.
+	Logo: `frontend/static/brand/onder-logo.png` dosyasını kendi PNG’nizle değiştirin (aynı dosya adı).
 -->
 <script lang="ts">
-	import onderLogo from '$lib/assets/brand/onder-logo.svg';
-
 	type Variant = 'home' | 'nav';
 
 	interface Props {
@@ -12,7 +10,7 @@
 
 	let { variant = 'home' }: Props = $props();
 
-	const src = onderLogo;
+	const src = '/brand/onder-logo.png';
 	const imgClass =
 		variant === 'home'
 			? 'h-16 md:h-24 w-auto max-w-[min(100%,320px)] object-contain object-left'
