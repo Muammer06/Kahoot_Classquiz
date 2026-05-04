@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
+#
+# SPDX-License-Identifier: MPL-2.0
+
+# API + Socket.IO first, SPA catch-all last (ordering matters).
+
+:8080 {
+	handle /api/* {
+		reverse_proxy http://api:80
+	}
+	handle /openapi.json {
+		reverse_proxy http://api:80
+	}
+	handle /socket.io* {
+		reverse_proxy http://api:80
+	}
+	handle {
+		reverse_proxy http://frontend:3000
+	}
+}

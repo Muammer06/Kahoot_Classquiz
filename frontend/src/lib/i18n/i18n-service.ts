@@ -1,0 +1,77 @@
+// SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
+//
+// SPDX-License-Identifier: MPL-2.0
+
+import i18next from 'i18next';
+import en from './locales/en.json';
+import de from './locales/de.json';
+import fr from './locales/fr.json';
+import tr from './locales/tr.json';
+import id from './locales/id.json';
+import ca from './locales/ca.json';
+import it from './locales/it.json';
+import es from './locales/es.json';
+import nb_no from './locales/nb_NO.json';
+import zh_Hant from './locales/zh_Hant.json';
+import pl from './locales/pl.json';
+import pt from './locales/pt.json';
+import uk from './locales/uk.json';
+import nl from './locales/nl.json';
+import hu from './locales/hu.json';
+import vi from './locales/vi.json';
+import ta from './locales/ta.json';
+import pt_BR from './locales/pt_BR.json';
+import ja from './locales/ja.json';
+import type { i18n } from 'i18next';
+
+export class I18nService {
+	i18n: i18n;
+
+	constructor() {
+		this.i18n = i18next;
+		this.initialize();
+	}
+	t(key: string, replacements?: Record<string, unknown>): string {
+		return this.i18n.t(key, replacements);
+	}
+
+	// Initializing i18n
+	initialize(): void {
+		this.i18n.init({
+			compatibilityJSON: 'v4',
+			lng: 'tr',
+			fallbackLng: 'tr',
+			debug: false,
+			defaultNS: 'translation',
+			interpolation: {
+				escapeValue: false
+			},
+			returnEmptyString: false,
+			simplifyPluralSuffix: true
+		});
+		this.i18n.addResourceBundle('en', 'translation', en);
+		this.i18n.addResourceBundle('de', 'translation', de);
+		this.i18n.addResourceBundle('fr', 'translation', fr);
+		this.i18n.addResourceBundle('tr', 'translation', tr);
+		this.i18n.addResourceBundle('id', 'translation', id);
+		this.i18n.addResourceBundle('it', 'translation', it);
+		this.i18n.addResourceBundle('ca', 'translation', ca);
+		this.i18n.addResourceBundle('es', 'translation', es);
+		this.i18n.addResourceBundle('nb_NO', 'translation', nb_no);
+		this.i18n.addResourceBundle('zh_Hant', 'translation', zh_Hant);
+		this.i18n.addResourceBundle('zh_Hant', 'translation', zh_Hant);
+		this.i18n.addResourceBundle('pl', 'translation', pl);
+		this.i18n.addResourceBundle('pt', 'translation', pt);
+		this.i18n.addResourceBundle('uk', 'translation', uk);
+		this.i18n.addResourceBundle('nl', 'translation', nl);
+		this.i18n.addResourceBundle('hu', 'translation', hu);
+		this.i18n.addResourceBundle('vi', 'translation', vi);
+		this.i18n.addResourceBundle('ta', 'translation', ta);
+		this.i18n.addResourceBundle('pt_BR', 'translation', pt_BR);
+		this.i18n.addResourceBundle('ja', 'translation', ja);
+	}
+
+	changeLanguage(language: string): void {
+		this.i18n.changeLanguage(language);
+	}
+}
