@@ -22,6 +22,7 @@ SPDX-License-Identifier: MPL-2.0
 	const plausible_data_url = import.meta.env.VITE_PLAUSIBLE_DATA_URL;
 
 	const hideNavbar = $derived(page.url.pathname === '/');
+	const hideGlobalFooter = $derived(page.url.pathname === '/');
 
 	if (browser) {
 		pathname.set(window.location.pathname);
@@ -66,11 +67,13 @@ SPDX-License-Identifier: MPL-2.0
 	<main class="relative z-0 flex min-h-0 flex-1 flex-col">
 		{@render children?.()}
 	</main>
-	<footer
-		class="relative z-20 w-full shrink-0 border-t border-neutral-300 bg-[#F5F5F5] py-3 text-center text-xs font-medium text-[#1A1A1B] dark:border-neutral-600 dark:bg-[#252526] dark:text-neutral-200"
-	>
-		© 2026 Önder TechTeam
-	</footer>
+	{#if !hideGlobalFooter}
+		<footer
+			class="relative z-20 w-full shrink-0 border-t border-neutral-300 bg-[#F5F5F5] py-3 text-center text-xs font-medium text-[#1A1A1B] dark:border-neutral-600 dark:bg-[#252526] dark:text-neutral-200"
+		>
+			© 2026 Önder TechTeam
+		</footer>
+	{/if}
 </div>
 <CommandPalette />
 

@@ -5,11 +5,9 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
-	import { fly } from 'svelte/transition';
 	import JpgOpenGraph from '$lib/assets/landing/opengraph-home.jpg';
 	import BrandMark from '$lib/components/BrandMark.svelte';
-
-	const heroLogoSrc = '/brand/onder-logo.png';
+	import OnderLogoMark from '$lib/components/OnderLogoMark.svelte';
 </script>
 
 <svelte:head>
@@ -27,57 +25,40 @@ SPDX-License-Identifier: MPL-2.0
 	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
+<!-- Tek ekran (100dvh), iç kaydırma yok; layout alt bilgisi ana sayfada gizli -->
 <div
-	class="min-h-0 flex-1 bg-[#F5F5F5] flex flex-col justify-between p-8 md:p-16 font-sans text-[#1A1A1B] relative overflow-x-hidden overflow-y-auto"
+	class="box-border flex h-dvh max-h-dvh w-full flex-col overflow-hidden bg-[#F5F5F5] px-4 py-3 font-sans text-[#1A1A1B] sm:px-6 sm:py-4 md:px-8 md:py-5"
 >
-	<header class="flex justify-between items-start w-full z-10">
-		<div class="flex flex-col gap-2">
+	<header class="flex shrink-0 items-start justify-between gap-3">
+		<div class="min-w-0 flex-1">
 			<BrandMark variant="home" />
-			<p class="text-[10px] md:text-xs tracking-[0.3em] font-medium uppercase opacity-80 text-[#1A1A1B]">
+			<p class="mt-1 text-[9px] font-medium uppercase tracking-[0.25em] text-[#1A1A1B]/75 sm:text-[10px]">
 				İmam Hatipliler Derneği
 			</p>
 		</div>
-
-		<div class="text-right text-[#1A1A1B]">
-			<p class="text-sm md:text-lg font-light leading-tight">KAMU KARİYER</p>
-			<p class="text-sm md:text-lg font-light leading-tight">BİLGİLENDİRME</p>
-			<p class="text-lg md:text-2xl font-black">PROGRAMI</p>
+		<div class="shrink-0 text-right text-[#1A1A1B] leading-tight">
+			<p class="text-[10px] font-light sm:text-xs md:text-sm">KAMU KARİYER</p>
+			<p class="text-[10px] font-light sm:text-xs md:text-sm">BİLGİLENDİRME</p>
+			<p class="text-xs font-black sm:text-sm md:text-base">PROGRAMI</p>
 		</div>
 	</header>
 
-	<main class="flex-grow flex flex-col items-center justify-center z-10 py-8 md:py-12">
-		<div
-			class="text-center max-w-4xl"
-			in:fly={{ y: 20, duration: 800, opacity: 0 }}
-		>
-			<div class="flex justify-center px-2">
-				<img
-					src={heroLogoSrc}
-					alt="Önder Ankara"
-					class="w-full max-w-2xl md:max-w-4xl h-auto object-contain drop-shadow-sm"
-					width="640"
-					height="186"
-					loading="eager"
-					decoding="async"
-				/>
-			</div>
-
-			<p class="mt-8 text-sm md:text-base font-medium text-[#1A1A1B]/75 max-w-lg mx-auto">
+	<main class="flex min-h-0 flex-1 flex-col items-center justify-center gap-3 py-2 sm:gap-4">
+		<div class="flex min-h-0 w-full max-w-3xl flex-col items-center justify-center text-center">
+			<OnderLogoMark variant="hero" />
+			<p class="mt-1 max-w-md px-1 text-xs font-medium text-[#1A1A1B]/80 sm:text-sm">
 				Canlı bilgi yarışması oluşturun, paylaşın veya oyun PIN’i ile hemen katılın.
 			</p>
-
-			<div
-				class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-xl mx-auto"
-			>
+			<div class="mt-3 flex w-full max-w-md flex-col gap-2 sm:mt-4 sm:flex-row sm:justify-center sm:gap-3">
 				<a
 					href="/create"
-					class="text-center px-10 py-4 rounded-sm bg-[#C41230] hover:bg-[#a30f28] text-white shadow-md font-bold text-base md:text-lg transition-colors border border-[#C41230]"
+					class="flex-1 rounded-sm border border-[#C41230] bg-[#C41230] py-3 text-center text-sm font-bold text-white shadow-md transition-colors hover:bg-[#a30f28] sm:py-3.5 sm:text-base"
 				>
 					Quiz oluştur
 				</a>
 				<a
 					href="/play"
-					class="text-center px-10 py-4 rounded-sm bg-white hover:bg-neutral-100 text-[#1A1A1B] shadow-md font-bold text-base md:text-lg transition-colors border-2 border-[#1A1A1B]/15"
+					class="flex-1 rounded-sm border-2 border-[#1A1A1B]/15 bg-white py-3 text-center text-sm font-bold text-[#1A1A1B] shadow-md transition-colors hover:bg-neutral-100 sm:py-3.5 sm:text-base"
 				>
 					Quiz’e katıl
 				</a>
@@ -85,25 +66,17 @@ SPDX-License-Identifier: MPL-2.0
 		</div>
 	</main>
 
-	<footer class="w-full flex justify-between items-end z-10 gap-4">
-		<div class="w-24 h-24 md:w-40 md:h-40 opacity-20 text-[#C41230] shrink-0">
-			<svg viewBox="0 0 200 200" fill="currentColor" class="w-full h-full" aria-hidden="true">
-				<path
-					d="M40,150 Q100,100 160,150 M40,160 Q100,110 160,160 M100,40 L100,120 M80,60 L100,40 L120,60"
-					stroke="currentColor"
-					stroke-width="2"
-					fill="none"
-				/>
-				<rect x="40" y="150" width="120" height="10" rx="2" />
-			</svg>
-		</div>
-		<p class="text-xs text-[#1A1A1B]/50 text-right max-w-xs leading-relaxed">
+	<footer
+		class="flex shrink-0 items-end justify-between gap-3 border-t border-black/5 pt-2 text-[10px] text-[#1A1A1B]/55 sm:text-xs"
+	>
+		<p class="max-w-[55%] leading-snug">
 			Bu uygulama etkinlik içi canlı soru–cevap oturumları içindir.
 		</p>
+		<p class="shrink-0 font-medium text-[#1A1A1B]/65">© 2026 Önder TechTeam</p>
 	</footer>
 
 	<div
-		class="absolute inset-0 pointer-events-none opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]"
+		class="pointer-events-none absolute inset-0 -z-10 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]"
 		aria-hidden="true"
 	></div>
 </div>
